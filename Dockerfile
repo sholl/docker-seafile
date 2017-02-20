@@ -1,6 +1,6 @@
 FROM phusion/baseimage:latest
 # Initially was based on work of Alessandro Viganò AND Andreas Löffler <andy@x86dev.com>
-# Almost entierly rewrote by Abdelrani Djelaili
+# Almost entierly rewrote by Abdelrani Djelaili <strator.adj@gmail.com>
 MAINTAINER Gissehel <public-dev-github-docker-seafile@gissehel.org>
 
 ARG BUILD_DATE
