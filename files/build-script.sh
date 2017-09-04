@@ -1,7 +1,7 @@
 export DEBIAN_FRONTEND=noninteractive
 apt-get -y update
 apt-get install -y ca-certificates nginx python2.7 python-flup python-imaging python-setuptools sqlite3 sudo
-apt-get install -y -q --force-yes ssl-cert wget
+apt-get install -y -q --force-yes ssl-cert openssl wget
 
 rm -rf /var/lib/apt/lists/*
 rm -f /var/log/dpkg.log
@@ -27,6 +27,9 @@ cp /tmp/files/seafile-nginx.conf /etc/nginx/sites-available/seafile
 
 ln -s /etc/nginx/sites-available/seafile /etc/nginx/sites-enabled/seafile
 
+# create SSL-related file
+openssl dhparam -dsaparam -out /etc/ssl/certs/dhparam.pem 4096
+
 deploy-bin() {
     filename="$1"
     dest_dir="$2"
@@ -51,5 +54,5 @@ ln -s "/etc/my_init.d/init_data.sh" "/init"
 ln -s "/opt/image/upgrade.sh" "/upgrade"
 ln -s "/opt/image/clean.sh" "/clean"
 
-rm -rf "/tmp/files"
+# rm -rf "/tmp/files"
 

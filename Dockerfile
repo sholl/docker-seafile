@@ -19,5 +19,5 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 ADD files /tmp/files
 RUN /bin/bash /tmp/files/build-script.sh
 
-EXPOSE 8080 
+EXPOSE 8443
 
