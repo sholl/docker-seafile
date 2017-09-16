@@ -1,7 +1,7 @@
 export DEBIAN_FRONTEND=noninteractive
 apt-get -y update
-apt-get install -y ca-certificates nginx python2.7 python-flup python-imaging python-setuptools sqlite3 sudo
-apt-get install -y -q --force-yes ssl-cert openssl wget
+apt-get install -y --allow-unauthenticated ca-certificates nginx python2.7 python-flup python-imaging python-setuptools sqlite3 sudo
+apt-get install -y -q --allow-unauthenticated --force-yes ssl-cert openssl wget
 
 rm -rf /var/lib/apt/lists/*
 rm -f /var/log/dpkg.log
@@ -13,6 +13,9 @@ mkdir -p /etc/service/seahub
 mkdir -p /etc/service/nginx
 mkdir -p /opt/seafile 
 mkdir -p /opt/image
+
+# make sure permissions on /tmp are set correct
+chmod 1777 /tmp
 
 adduser --disabled-password --gecos "" seafile
 
