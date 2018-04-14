@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+    seafile:
+        image: "sholl/seafile:latest"
+        container_name: dc-seafile-ssl-server
+        ports:
+         - "0.0.0.0:8443:8443"
+        restart: always
+        volumes:
+         - "/opt/seafile:/opt/seafile"
+         - "/etc/letsencrypt:/etc/letsencrypt"
