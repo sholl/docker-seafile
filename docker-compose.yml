@@ -2,8 +2,8 @@ version: '2'
 
 services:
     seafile:
-        image: "sholl/seafile:latest"
-        container_name: dc-seafile-ssl-server
+        image: "sholl/seafile:dev"
+        container_name: dc-seafile-ssl-server-dev
         ports:
          - "0.0.0.0:8443:8443"
         restart: always
