@@ -2,11 +2,18 @@ version: '2'
 
 services:
     seafile:
-        image: "sholl/seafile:dev"
+        image: "sholl/seafile:latest"
         container_name: dc-seafile-ssl-server-dev
         ports:
          - "0.0.0.0:8443:8443"
         restart: always
         volumes:
+         - seafile_data:/opt/seafile/seafile-data
          - "/opt/seafile:/opt/seafile"
+         - seahub_data:/opt/seafile/seahub-data
          - "/etc/letsencrypt:/etc/letsencrypt"
+volumes:
+    seahub_data:
+        external: true
+    seafile_data:
+        external: true
